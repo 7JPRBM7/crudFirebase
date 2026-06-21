@@ -35,3 +35,31 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
+
+/* =========================================================
+   CUSTOMIZAÇÃO VISUAL: FONTE E BORDAS ARREDONDADAS
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --ion-font-family: 'Poppins', sans-serif;
+}
+
+ion-card {
+  border-radius: 24px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+ion-button {
+  --border-radius: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+ion-item {
+  --border-radius: 12px;
+  margin-bottom: 10px;
+  --background: rgba(255, 255, 255, 0.05);
+}
