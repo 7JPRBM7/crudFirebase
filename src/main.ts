@@ -13,12 +13,13 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 const firebaseConfig = {
-  apiKey: "COLE_AQUI_DEPOIS",
-  authDomain: "COLE_AQUI_DEPOIS",
-  projectId: "COLE_AQUI_DEPOIS",
-  storageBucket: "COLE_AQUI_DEPOIS",
-  messagingSenderId: "COLE_AQUI_DEPOIS",
-  appId: "COLE_AQUI_DEPOIS"
+  apiKey: "AIzaSyD23O0IVKeFBMaCHo2KM_NSx7j731gGVlI",
+  authDomain: "crudflashcard.firebaseapp.com",
+  projectId: "crudflashcard",
+  storageBucket: "crudflashcard.firebasestorage.app",
+  messagingSenderId: "875486458594",
+  appId: "1:875486458594:web:9b69f8fd02997e12a724bb",
+  measurementId: "G-S4YHBB3BM6"
 };
 
 bootstrapApplication(AppComponent, {

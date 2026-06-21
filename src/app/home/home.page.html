@@ -1,20 +1,57 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>AV4 - FlashCards</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  
+  <ion-card color="light" *ngIf="dicaDoDia">
+    <ion-card-header>
+      <ion-card-subtitle>Dica via API RESTful</ion-card-subtitle>
+      <ion-card-title>{{ dicaDoDia.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ dicaDoDia.body }}
+    </ion-card-content>
+  </ion-card>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ cardEmEdicao ? 'Editar Card' : 'Novo Card' }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input label="Pergunta" labelPlacement="floating" [(ngModel)]="novaPergunta"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Resposta" labelPlacement="floating" [(ngModel)]="novaResposta"></ion-input>
+      </ion-item>
+      
+      <ion-button expand="block" class="ion-margin-top" (click)="salvarCard()">
+        {{ cardEmEdicao ? 'Atualizar' : 'Salvar' }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Meus FlashCards (Firebase Realtime)</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let card of cards">
+      <ion-label>
+        <h2>{{ card.pergunta }}</h2>
+        <p>{{ card.resposta }}</p>
+      </ion-label>
+      
+      <ion-button fill="clear" slot="end" (click)="editarCard(card)">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" color="danger" slot="end" (click)="excluirCard(card.id)">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
